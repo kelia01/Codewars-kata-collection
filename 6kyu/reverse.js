@@ -12,5 +12,5 @@ function reverse(str){
               }
               return x;
               }).join(' ');
-              }
+}
 console.log(reverse('Reverse this string, please!'));

@@ -13,26 +13,26 @@
 
 // ["a", 1, "b", 300, "x", "q", 63, 122, 181, "z", 0.83, 0.11].even() // should return [300, 122]
 // Note: List with non-numbers will be tested as well.
-const myobj = {
-    even (){
-        return arr.filter((x) => x % 2 === 0);  
-    },
-    odd (){
-        return arr.filter((x) => x % 2 !== 0);  
-    },
-    under (num){
-        return arr.filter((x) => x < num);
-    },
-    over (num){
-        return arr.filter((x) => x > num);
-    },
-    inRange (start, end){
-        return arr.filter((x) => {
-            if(x >= start && x <= end){
-                return x;
-            }
-        })
-    },
+
+Array.prototype.even = function (){
+    return this.filter((x) => Number.isInteger(x) && x % 2 === 0);  
 }
-let arr = [1,2,3,4];
-console.log(arr.myobj.even());
+Array.prototype.odd = function (){
+    return this.filter((x) => Number.isInteger(x) && x % 2 !== 0);  
+}
+Array.prototype.under = function (num){
+    return this.filter((x) => Number.isInteger(x) && x < num);
+}
+Array.prototype.over = function (num){
+    return this.filter((x) => Number.isInteger(x) && x > num);
+}
+Array.prototype.inRange = function (start, end){
+    return this.filter((x) => {
+        if(Number.isInteger(x) && x >= start && x <= end){
+            return x;
+        }
+    })
+}
+
+let arr = ["a", 1, "b", 300, "x", "q", 63, 122, 181, "z", 0.83, 0.11];
+console.log(arr.inRange(1, 122));

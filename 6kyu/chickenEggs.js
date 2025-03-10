@@ -18,10 +18,26 @@
 // eggs produced by each 'batch' of chickens. While this might appear to be the same thing,it
 //  doesn't once non-integers come into play so take care that this is reflected in your kata!
 
-function egged(year,span) { 
-    if (year <= 0) return "No chickens yet!"
-    if (year >= 1 && span > 0){
+function egged(year, span) { 
+    if (year <= 0) return "No chickens yet!";
+    let totalEggs = 0;
+    let batches = []; 
+
+    for (let y = 1; y <= year; y++) {
+        batches.push(300); 
+        let yearlyEggs = 0;
         
+        for (let i = 0; i < batches.length; i++) {
+            if (y - i <= span) { 
+                yearlyEggs += batches[i] * 3; 
+                batches[i] = Math.floor(batches[i] * 0.8); 
+            }
+        }
+
+        totalEggs = yearlyEggs;
     }
 
-    }
+    return totalEggs;
+}
+    
+ console.log(egged(1,5))

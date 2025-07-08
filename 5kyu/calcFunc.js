@@ -1,0 +1,19 @@
+// Numbers
+const zero = (op) => op ? op(0) : 0
+const one = (op) => op ? op(1) : 1
+const two = (op) => op ? op(2) : 2
+const three = (op) => op ? op(3) : 3
+const four = (op) => op ? op(4) : 4
+const five = (op) => op ? op(5) : 5
+const six = (op) => op ? op(6) : 6
+const seven = (op) => op ? op(7) : 7
+const eight = (op) => op ? op(8) : 8
+const nine = (op) => op ? op(9) : 9
+
+// Operators
+const plus = b => a => a + b
+const minus = b => a => a - b
+const times = b => a => a * b
+const dividedBy = b => a => Math.floor(a / b)
+
+//seven(times(five()));  must return 35
